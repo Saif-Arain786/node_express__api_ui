@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../expirychecker/expirychecker";
 
 export default function VerifyOtp() {
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const navigate = useNavigate(); // Initialize useNavigate hook
   const handleChange = (e) => {
     setOtp(e.target.value);
   };
 
-  const navigate = useNavigate(); // Initialize useNavigate hook
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setMessage("");
     try {
-      const response = await axios.post(
+      const response = await axiosInstance.post(
         "http://localhost:5004/auth/verifyOtp",
         { otp },
         {

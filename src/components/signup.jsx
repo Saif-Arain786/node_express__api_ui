@@ -3,6 +3,7 @@ import "tailwindcss";
 import "../styles/signup.css"; // Optional: Tailwind custom styles
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../expirychecker/expirychecker";
 
 
 export default function SignupPage() {
@@ -50,7 +51,7 @@ export default function SignupPage() {
     };
     console.log(data,"config);",config);
 
-    axios
+    axiosInstance
       .request(config)
       .then((response) => {
         console.log("✅ Signup success:",JSON.stringify( response.data));
