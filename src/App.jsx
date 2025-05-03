@@ -6,11 +6,13 @@ import "tailwindcss";
 import VerifyOtp from "./components/verifyotp";
 import ProfileHome from "./home/completeProfile";
 import Loginpage from "./components/login";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { isTokenValid } from "./utilsauth/utilsauth";
+import Home from "./home/home.jsx";
+
 function App() {
   return (
-    <Router>
+    <>
       <AuthHandler />
       <Routes>
         {/* Route for Signup Page */}
@@ -19,8 +21,10 @@ function App() {
         <Route path="/verifyOtp" element={<VerifyOtp />} />
         <Route path="/profile" element={<ProfileHome />} />
         <Route path="/login" element={<Loginpage />} />
+        <Route path="/Home" element={<Home />} />
+
       </Routes>
-    </Router>
+    </>
   );
 }
 

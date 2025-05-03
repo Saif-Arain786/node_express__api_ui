@@ -4,6 +4,7 @@ import "../styles/signup.css"; // Optional: Tailwind custom styles
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../expirychecker/expirychecker";
+import GoogleLogins from "../googlesignin/googlesign";
 
 
 export default function SignupPage() {
@@ -126,7 +127,9 @@ export default function SignupPage() {
           >
             {loading ? "Signing up..." : "Sign Up"}
           </button>
+
         </form>
+        <GoogleLogins/>
 
         {/* Message */}
         {message && (

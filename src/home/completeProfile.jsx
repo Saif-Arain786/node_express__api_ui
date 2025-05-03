@@ -106,11 +106,15 @@ export default function ProfileHome() {
       setMessage("Failed to update profile. Please try again.");
     }
   };
+  const navigate = useNavigate();
   const logOut = () => {
-    const navigate = useNavigate();
+
     localStorage.removeItem("token"); // Clear token  
     localStorage.removeItem("user"); // Clear token  
-    navigate("/login"); // Redirect to login page
+    navigate("/"); // Redirect to login page
+  }
+  const homepage = () => {
+    navigate("/Home"); // Redirect to login page
   }
   
 
@@ -154,6 +158,14 @@ export default function ProfileHome() {
           >
             Edit Profile
           </button>
+             <div>
+          <button
+            onClick={() => homepage()}
+            className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            home page
+          </button>
+          </div>
              <div>
           <button
             onClick={() => logOut()}
